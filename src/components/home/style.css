@@ -1,11 +1,11 @@
 .home {
     background-color: black;
-    color: white;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    text-align: center;
     position: relative;
     overflow: hidden;
 }
@@ -22,14 +22,68 @@
 }
 
 .dot {
-    width: .7px;
-    height: .7px;
+    width: 1px;
+    height: 1px;
     background-color: white;
     border-radius: 50%;
     margin: 30px;
     z-index: 1;
 }
 
-.homeTopText {
-    color: #149414;
+.topTexts {
+    width: max-content;
+    margin: 100px auto;
+}
+
+.topTexts h2 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 10px;
+    font-size: x-large;
+    font-family: monospace;
+}
+
+.topTexts h2 h2 {
+    background: linear-gradient(90deg, #578FCA, #85CDFD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.home .logos {
+    position: relative;
+    margin-right: 500px;
+}
+
+.home img {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: -100px;
+}
+
+.home .mainTexts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.home .mainTexts p {
+    padding: 30px 40px;
+    color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    max-width: 600px;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    text-align: left;
+}
+.home .mainTexts p span{
+    font-size: 27px;
+    margin-left: -10px;
 }
