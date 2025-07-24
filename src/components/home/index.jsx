@@ -152,6 +152,10 @@ export default function Home() {
             🏓 When I'm not coding, you'll probably find me exploring new technologies 💡 or enjoying a game of table tennis.<br /><br />
           </p>
         </div>
+        <div className="end">
+          <p>scroll for more</p>
+          <i className="fa-solid fa-chevron-down"/>
+        </div>
       </div>
     </div>
   )
