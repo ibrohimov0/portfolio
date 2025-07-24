@@ -123,6 +123,30 @@ export default function Home() {
         }
       );
     });
+
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.6 });
+
+    tl.to(".scrollDown", {
+      y: 10, // Boshida ko‘proq pastga
+      duration: 0.3,
+      ease: "sine.inOut",
+    })
+      .to(".scrollDown", {
+        y: 0, // Orqaga qaytish
+        duration: 0.3,
+        ease: "sine.inOut",
+      })
+      .to(".scrollDown", {
+        y: 15, // Biroz kamroq pastga
+        duration: 0.5,
+        ease: "sine.inOut",
+      })
+      .to(".scrollDown", {
+        y: 0,
+        duration: 0.5,
+        ease: "sine.inOut",
+      })
+      .to({}, { duration: 2 })
   }, []);
   return (
     <div className="home">
@@ -152,10 +176,7 @@ export default function Home() {
             🏓 When I'm not coding, you'll probably find me exploring new technologies 💡 or enjoying a game of table tennis.<br /><br />
           </p>
         </div>
-        <div className="end">
-          <p>scroll for more</p>
-          <i className="fa-solid fa-chevron-down"/>
-        </div>
+        <i className="scrollDown fa-solid fa-chevron-down" />
       </div>
     </div>
   )
