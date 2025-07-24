@@ -9,6 +9,8 @@ import ExpressIcon from "../../assets/icons/express.svg"
 import MongodbIcon from "../../assets/icons/mongodb.svg"
 import NodeIcon from "../../assets/icons/node.svg"
 import ReactIcon from "../../assets/icons/react.svg"
+import SassIcon from "../../assets/icons/sass.svg"
+import UbuntuIcon from "../../assets/icons/ubuntu.svg"
 
 gsap.registerPlugin(TextPlugin);
 
@@ -89,7 +91,7 @@ export default function Home() {
 
     logos.forEach((el, index) => {
       const angle = (360 / logos.length) * index;
-      const distance = 130;
+      const distance = 180;
 
       const x = Math.cos(angle * (Math.PI / 180)) * distance;
       const y = Math.sin(angle * (Math.PI / 180)) * distance;
@@ -157,12 +159,14 @@ export default function Home() {
       </div>
 
       <div className="homeTexts">
-        <div className="topTexts liquidGlassEffect">
+        <div className="texts topTexts liquidGlassEffect">
           <h2>I'm a <h2 ref={textRef} /></h2>
         </div>
         <div className="mainTexts">
           <div className="logos">
-            <img className="logo liquidGlassEffect" src={ExpressIcon} alt="ExpressIcon" />
+            <img className="logo liquidGlassEffect" src={SassIcon} alt="SassIcon" />
+            <img className="logo liquidGlassEffect" style={{background: "rgba(255,255,255,0.3)"}} src={ExpressIcon} alt="ExpressIcon" />
+            <img className="logo liquidGlassEffect" src={UbuntuIcon} alt="UbuntuIcon" />
             <img className="logo liquidGlassEffect" src={MongodbIcon} alt="MongodbIcon" />
             <img className="logo liquidGlassEffect" src={NodeIcon} alt="NodeIcon" />
             <img className="logo liquidGlassEffect" src={JsIcon} alt="JsIcon" />
