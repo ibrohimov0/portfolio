@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react"
 import "./style.css"
 import gsap from "gsap"
-import { TextPlugin } from "gsap/all";
+import { TextPlugin, ScrollTrigger } from "gsap/all";
 import { useEffect, useRef } from "react";
 
 import JsIcon from "../../assets/icons/js.svg"
@@ -12,27 +12,11 @@ import ReactIcon from "../../assets/icons/react.svg"
 import SassIcon from "../../assets/icons/sass.svg"
 import UbuntuIcon from "../../assets/icons/ubuntu.svg"
 
-gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 
 export default function Home() {
   useGSAP(() => {
-    gsap.fromTo(".dot",
-      { opacity: 0, scale: 0 },
-      {
-        opacity: 1,
-        scale: 1.5,
-        duration: 1.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        stagger: {
-          amount: 1.5,
-          from: "edges",
-          grid: "auto"
-        }
-      }
-    );
     gsap.from(".texts", {
       opacity: 0,
       rotateX: 90,
@@ -85,8 +69,64 @@ export default function Home() {
       });
     });
   }, []);
-  //logo animation
+
   useEffect(() => {
+    // Dots animation
+    const pulse = gsap.fromTo(".dot",
+      { opacity: 0, scale: 0, x: 0, y: 0, position: "relative" },
+      {
+        x: 0,
+        y: 0,
+        position: "relative",
+        opacity: 1,
+        scale: 1.5,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        stagger: {
+          amount: 1.5,
+          from: "edges",
+          grid: "auto"
+        }
+      }
+    );
+
+    ScrollTrigger.create({
+      trigger: ".home",
+      start: "bottom bottom",
+      onEnter: () => {
+        pulse.kill();
+        gsap.to(".dot", {
+          opacity: 1,
+          duration: 1,
+          scale: 2,
+          ease: "power1.inOut",
+          x: (i, el) => {
+            const bounds = el.getBoundingClientRect();
+            const centerX = window.innerWidth / 2;
+            return centerX - bounds.left - bounds.width / 2;
+          },
+          y: (i, el) => {
+            const bounds = el.getBoundingClientRect();
+            const centerY = window.innerHeight * 1; // 50vh
+            return centerY - bounds.top - bounds.height / 2;
+          },
+          stagger: {
+            amount: 0.5,
+            from: "edges",
+            grid: "auto"
+          }
+        });
+      },
+      onLeaveBack: () => {
+        pulse.restart();
+      }
+    });
+
+
+
+    // Logo animation
     const logos = gsap.utils.toArray(".logo");
 
     logos.forEach((el, index) => {
@@ -126,20 +166,21 @@ export default function Home() {
       );
     });
 
+    // Scroll down animation
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.6 });
 
     tl.to(".scrollDown", {
-      y: 10, // Boshida ko‘proq pastga
+      y: 10,
       duration: 0.3,
       ease: "sine.inOut",
     })
       .to(".scrollDown", {
-        y: 0, // Orqaga qaytish
+        y: 0,
         duration: 0.3,
         ease: "sine.inOut",
       })
       .to(".scrollDown", {
-        y: 15, // Biroz kamroq pastga
+        y: 18,
         duration: 0.5,
         ease: "sine.inOut",
       })
@@ -150,6 +191,7 @@ export default function Home() {
       })
       .to({}, { duration: 2 })
   }, []);
+
   return (
     <div className="home">
       <div className="dots">
@@ -165,7 +207,7 @@ export default function Home() {
         <div className="mainTexts">
           <div className="logos">
             <img className="logo liquidGlassEffect" src={SassIcon} alt="SassIcon" />
-            <img className="logo liquidGlassEffect" style={{background: "rgba(255,255,255,0.3)"}} src={ExpressIcon} alt="ExpressIcon" />
+            <img className="logo liquidGlassEffect" style={{ background: "rgba(255,255,255,0.3)" }} src={ExpressIcon} alt="ExpressIcon" />
             <img className="logo liquidGlassEffect" src={UbuntuIcon} alt="UbuntuIcon" />
             <img className="logo liquidGlassEffect" src={MongodbIcon} alt="MongodbIcon" />
             <img className="logo liquidGlassEffect" src={NodeIcon} alt="NodeIcon" />
