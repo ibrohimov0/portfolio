@@ -83,14 +83,14 @@ export default function MySavdo() {
           <div className="orangeBox liquidGlassEffect">
             <ImageSlider images={orangeImages} width="300px" top="25%" />
             <div className="textBox">
-              <h4>Big and cool system of backend</h4>
+              <h4>🛠️ Big and cool system of backend</h4>
               <p>Built with NodeJS, Express.js, MongoDB</p>
             </div>
           </div>
           <div className="blueBox liquidGlassEffect">
             <ImageSlider images={blueImages} width="350px" top="20%" />
             <div className="textBox">
-              <h4>Amazig and Functional Web CRM</h4>
+              <h4>🤩 Amazig and Functional Web CRM</h4>
               <p>Built with React.js, Redux toolkit</p>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function MySavdo() {
         <div className="greenBox liquidGlassEffect">
           <ImageSlider images={greenImages} width="300px" top="60%" />
           <div className="textBox">
-            <h4>Wonderful and Quick Ui on Mobile</h4>
+            <h4>🎨 Wonderful and Quick Ui on Mobile</h4>
             <p>Built with React Native, Expo</p>
           </div>
         </div>

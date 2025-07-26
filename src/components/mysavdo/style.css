@@ -89,7 +89,7 @@
 }
 
 /*  */
-.glowContainer {
+.mySavdo .glowContainer {
     position: absolute;
     top: 0;
     left: 0;
@@ -103,7 +103,7 @@
     opacity: 0;
 }
 
-.glow {
+.mySavdo .glow {
     position: absolute;
     width: 300px;
     height: 300px;
@@ -116,22 +116,23 @@
     animation: pulse 4s ease-in-out infinite;
 }
 
-.glow-orange {
+.mySavdo .glow-orange {
     background: #fdc83e;
     top: -100px;
     left: -100px;
 }
 
-.glow-blue {
+.mySavdo .glow-blue {
     background: #28a6e5;
     bottom: -100px;
     left: -80px;
 }
 
-.glow-green {
+.mySavdo .glow-green {
     background: #66dd7d;
     right: -90px;
-    top: 40%;
+    top: 25%;
+    height: 500px;
 }
 
 @keyframes pulse {
