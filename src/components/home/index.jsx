@@ -100,7 +100,7 @@ export default function Home() {
         gsap.to(".dot", {
           opacity: 1,
           duration: 1,
-          scale: 2,
+          scale: 5,
           ease: "power1.inOut",
           x: (i, el) => {
             const bounds = el.getBoundingClientRect();
