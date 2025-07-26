@@ -1,0 +1,75 @@
+.projects{
+    width: 100%;
+    height: 150vh;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+}
+.projects .projectsBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.projects .project{
+    width: 45%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+    position: relative;
+}
+.projects .project:hover{
+    transform: scale(1.05);
+}
+.projects .project img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+.projects .project .projectTexts{
+    width: 100%;
+    bottom: 10%;
+    left: 5%;
+    position: absolute;
+}
+.projects .project h2{
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #fff;
+}
+.projects .project p{
+    font-size: 1rem;
+    color: #666;
+    padding: 0 10px;
+}
+.projects .project a{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-left: 100%;
+}
+.projects .project a:hover{
+    background-color: #0056b3;
+}
+.projects .project a:visited{
+    color: #fff;
+}
+.projects .project a:active{
+    background-color: #004085;
+}
+.projects .project a:focus{
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+.projects .project a:focus-visible{
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
