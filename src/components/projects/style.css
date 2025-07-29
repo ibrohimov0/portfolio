@@ -4,24 +4,55 @@
     overflow: hidden;
     background-color: black;
     color: white;
+    position: relative;
+}
+.projects .scrollArrow{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 150vh;
+    top: 10%;
+    left: 0;
+    z-index: 2;
+}
+.projects .scrollArrow span{
+    width: 1px;
+    height: 150vh;
+    background-color: #cccccc4d;
+}
+.projects .scrollArrow i{
+    position: absolute;
+    font-size: 3rem;
+    color: #666;
+    animation: scroll 1.5s infinite;
+    transform: rotate(225deg);
+}
+.projects h1{
+    text-align: center;
+    margin: 50px 0;
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
 }
 .projects .projectsBox{
     width: 100%;
-    height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 .projects .project{
-    width: 45%;
-    margin: 20px;
+    width: 30%;
+    margin: 40px 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s;
-    position: relative;
 }
 .projects .project:hover{
     transform: scale(1.05);
@@ -32,44 +63,78 @@
 }
 .projects .project .projectTexts{
     width: 100%;
-    bottom: 10%;
-    left: 5%;
-    position: absolute;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 .projects .project h2{
     margin: 10px 0;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #fff;
 }
 .projects .project p{
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #666;
     padding: 0 10px;
+    margin: 20px 0;
 }
-.projects .project a{
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    margin-left: 100%;
+
+.projects .project a {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 18px ;
+  background: none;
+  color: #fff;
+  border: 2px solid #666;
+  border-radius: 6px;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: medium;
 }
-.projects .project a:hover{
-    background-color: #0056b3;
+
+.projects .project a::after {
+  content: '';
+  display: block;
+  height: 7px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #666,
+    #666 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  border-top: 1px solid #666;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-size: 7px 7px;
+  backface-visibility: hidden;
 }
-.projects .project a:visited{
-    color: #fff;
+
+.projects .project a:hover {
+  background-color: #666;
+  color: #fff;
+  border-color: #000;
 }
-.projects .project a:active{
-    background-color: #004085;
+
+.projects .project a:hover::after {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  border-top: 1px solid #000;
+  animation: stripe-slide 12s infinite linear forwards;
 }
-.projects .project a:focus{
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
-}
-.projects .project a:focus-visible{
-    outline: 2px solid #0056b3;
-    outline-offset: 2px;
+
+@keyframes stripe-slide {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
 }
